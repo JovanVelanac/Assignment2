@@ -1,0 +1,11 @@
+[Unit]
+Description=Our example of go application
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/home/vagrant/Assignment2
+PIDFile=/var/run/simple
+
+[Install]
+WantedBy=default.target
