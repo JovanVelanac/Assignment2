@@ -8,7 +8,7 @@ hosts: all
 
     - name: copy artifact
       copy:
-        src: Assignment1
+        src: Assignment2
         dest: /home/vagrant/Assignment2
         mode: '0777'
 
