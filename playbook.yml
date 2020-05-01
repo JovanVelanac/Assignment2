@@ -9,7 +9,7 @@ hosts: all
     - name: copy artifact
       copy:
         src: Assignment1
-        dest: /home/vagrant/Assignment2
+        dest: /home/vagrant/Assignment1
         mode: '0777'
 
     - name: enable and start service
