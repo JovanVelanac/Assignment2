@@ -9,7 +9,7 @@ pipeline {
     }
     stage('Deliver') {
       steps {
-        ansiblePlaybook credentialsId: 'toolbox-vagrant-key', inventory: 'hosts.ini', playbook: 'playbook.yml'
+        ansiblePlaybook credentialsId: 'toolbox-vagrant-key', inventory: 'hosts.ini', playbook: 'playbook.yml', disableHostKeyChecking: true
       }
     }
   }
