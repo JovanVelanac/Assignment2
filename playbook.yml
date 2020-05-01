@@ -8,8 +8,13 @@ hosts: all
 
     - name: copy artifact
       copy:
+<<<<<<< HEAD
         src: Assignment1
         dest: /home/vagrant/Assignment1
+=======
+        src: Assignment2
+        dest: /home/vagrant/Assignment2
+>>>>>>> aa17cf9a26043d886f9683f576f3e4ae7ec3a7ab
         mode: '0777'
 
     - name: enable and start service
