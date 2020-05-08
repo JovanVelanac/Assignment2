@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  parameters {
+choice(name: 'CHOICE', choices: ['staging', 'production'], description: 'Pick something')
+
+}
 
   stages {
     stage('Copy artifact') {
@@ -9,7 +13,7 @@ pipeline {
     }
     stage('Deliver') {
       steps {
-        ansiblePlaybook credentialsId: 'toolbox-vagrant-key', inventory: 'hosts.ini', playbook: 'playbook.yml', disableHostKeyChecking: true
+        ansiblePlaybook credentialsId: 'toolbox-vagrant-key', inventory: "inventories/${params.CHOICE}/hosts.ini", playbook: 'playbook.yml', disableHostKeyChecking: true
       }
     }
   }
