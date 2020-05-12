@@ -1,7 +1,7 @@
 pipeline {
   agent any
   parameters {
-choice(name: 'CHOICE', choices: ['staging', 'production'], description: 'Pick something')
+choice(name: 'CHOICE', choices: ['staging', 'production','aws'], description: 'Pick something')
 
 }
 
@@ -16,15 +16,15 @@ choice(name: 'CHOICE', choices: ['staging', 'production'], description: 'Pick so
         ansiblePlaybook credentialsId: 'toolbox-vagrant-key', inventory: "inventories/${params.CHOICE}/hosts.ini", playbook: 'playbook.yml', disableHostKeyChecking: true
       }
     }
-    stage('Integration Test') {
-      agent{
-	docker {
-	image 'postman/newman'
-	args '--entrypoint='
-}} 
-	steps {
-	    sh 'newman run "https://www.getpostman.com/collections/e28663e6208d00ce79d5"'
-		}
-}
+//    stage('Integration Test') {
+//      agent{
+//	docker {
+//	image 'postman/newman'
+//	args '--entrypoint='
+//}} 
+//	steps {
+//	    sh 'newman run "https://www.getpostman.com/collections/e28663e6208d00ce79d5"'
+//		}
+//}
   }
 }
